@@ -12,11 +12,32 @@ contract DeploySchema is BaseScript {
     ISchemaRegistry schemaRegistry;
 
     function configureChain() public {
-        // TODO: add chain configuration
         if (block.chainid == 10) {
             // Optimism
             eas = IEAS(0x4200000000000000000000000000000000000021);
             schemaRegistry = ISchemaRegistry(0x4200000000000000000000000000000000000020);
+        } else if (block.chainid == 8453) {
+            // Base
+            eas = IEAS(0x4200000000000000000000000000000000000021);
+            schemaRegistry = ISchemaRegistry(0x4200000000000000000000000000000000000020);
+        } else if (block.chainid == 42_161) {
+            // Arbitrum
+            eas = IEAS(0xbD75f629A22Dc1ceD33dDA0b68c546A1c035c458);
+            schemaRegistry = ISchemaRegistry(0xA310da9c5B885E7fb3fbA9D66E9Ba6Df512b78eB);
+        } else if (block.chainid == 42_220) {
+            // Celo
+            eas = IEAS(0x72E1d8ccf5299fb36fEfD8CC4394B8ef7e98Af92);
+            schemaRegistry = ISchemaRegistry(0x5ece93bE4BDCF293Ed61FA78698B594F2135AF34);
+        } else if (block.chainid == 84_532) {
+            // Base Sepolia
+            eas = IEAS(0x4200000000000000000000000000000000000021);
+            schemaRegistry = ISchemaRegistry(0x4200000000000000000000000000000000000020);
+        } else if (block.chainid == 11_155_111) {
+            // Sepolia
+            eas = IEAS(0xC2679fBD37d54388Ce493F1DB75320D236e1815e);
+            schemaRegistry = ISchemaRegistry(0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0);
+        } else {
+            revert("Chain not supported");
         }
     }
 
