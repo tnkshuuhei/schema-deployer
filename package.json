@@ -25,6 +25,13 @@
     "clean": "rm -rf cache out",
     "build": "forge clean && forge build",
     "test": "forge clean && forge test",
-    "coverage": "forge clean && forge coverage"
+    "coverage": "forge clean && forge coverage",
+    "deploy-all": "pnpm deploy-base-sepolia && pnpm deploy-celo && pnpm deploy-optimism && pnpm deploy-arbitrum && pnpm deploy-base",
+    "deploy-sepolia": "forge clean && forge script script/DeploySchema.s.sol --rpc-url sepolia --broadcast",
+    "deploy-base-sepolia": "forge script script/DeploySchema.s.sol --rpc-url base_sepolia --broadcast",
+    "deploy-celo": "forge script script/DeploySchema.s.sol --rpc-url celo --broadcast",
+    "deploy-optimism": "forge script script/DeploySchema.s.sol --rpc-url optimism --broadcast",
+    "deploy-arbitrum": "forge script script/DeploySchema.s.sol --rpc-url arbitrum --broadcast",
+    "deploy-base": "forge script script/DeploySchema.s.sol --rpc-url base --broadcast"
   }
 }

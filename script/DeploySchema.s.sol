@@ -71,20 +71,20 @@ contract DeploySchema is BaseScript {
         console.log("Name attestation deployed at");
         console.logBytes32(nameAttestationUID);
 
-        console.log("Describing schema...");
-        bytes memory descriptionData = abi.encode(deployedSchemaUID, description);
-        AttestationRequestData memory descriptionRequest = AttestationRequestData({
-            recipient: address(0),
-            expirationTime: 0,
-            revocable: true,
-            refUID: 0x0,
-            data: descriptionData,
-            value: 0
-        });
-        AttestationRequest memory descriptionAttestationRequest =
-            AttestationRequest({ schema: descriptionSchema, data: descriptionRequest });
-        bytes32 descriptionAttestationUID = eas.attest(descriptionAttestationRequest);
-        console.log("Description attestation deployed at");
-        console.logBytes32(descriptionAttestationUID);
+        // console.log("Describing schema...");
+        // bytes memory descriptionData = abi.encode(deployedSchemaUID, description);
+        // AttestationRequestData memory descriptionRequest = AttestationRequestData({
+        //     recipient: address(0),
+        //     expirationTime: 0,
+        //     revocable: true,
+        //     refUID: 0x0,
+        //     data: descriptionData,
+        //     value: 0
+        // });
+        // AttestationRequest memory descriptionAttestationRequest =
+        //     AttestationRequest({ schema: descriptionSchema, data: descriptionRequest });
+        // bytes32 descriptionAttestationUID = eas.attest(descriptionAttestationRequest);
+        // console.log("Description attestation deployed at");
+        // console.logBytes32(descriptionAttestationUID);
     }
 }
